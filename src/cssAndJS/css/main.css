@@ -1,4 +1,4 @@
-/* general Styling */
+/* General Styling */
 
 *{
   font-family: century gothic;
@@ -40,4 +40,15 @@ header ul{
 header li{
   display: inline;
   padding: 2% 10% 2% 10%;
+}
+
+/* styling the main body of the pages */
+#welcomeMSG{
+  text-align: center;
+  font-size: 150%;
+  background: #f3f3f3;
+  color: #293132;
+  margin: 5%;
+  padding: 2%;
+  border-radius: 5px;
 }
