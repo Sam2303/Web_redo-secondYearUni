@@ -5,6 +5,7 @@ const api = express.Router();
 
 api.post('/storeResults', async (req, res) =>{
 
+  console.log('Linked');
   const surveyResponse = req.body;
   console.log('Data Recieved');
   await res.json({success:true});

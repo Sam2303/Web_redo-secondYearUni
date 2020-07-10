@@ -9,10 +9,10 @@ submitButton.addEventListener('click', async () =>{
 
 // defines what teh json file is going to look like and the structure
 
-let Questionnaire_Title = document.getElementById('questionnaire_Title').innerHTMl;
+let title = document.getElementById('questionnaire_Title').innerHTMl;
 
-const results = {title: Questionnaire_Title,}
-results.response = [];
+const result = {title: title,}
+result.response = [];
 
 for(let i = 0; i < numberOfQuestions; i++){
   console.log(i);
@@ -26,21 +26,20 @@ for(let i = 0; i < numberOfQuestions; i++){
     question: questionText,
     answer: elem.questionAnswer
   };
-  results.response.push(responses);
+  result.response.push(responses);
 }
 
-
-console.log(results);
-
+console.log(result);
 
   const send_backend = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(results),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(result),
   });
 
   const returned = await send_backend.json();
   if(returned.success===true){
-    console.log('sent');
+    console.log('saved');
   } else{
     console.log('There has been an error');
   }
