@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
-const fetch = require("node-fetch");
 const api = require('./api');
+const fetch = require("node-fetch");
 
 const app = express();
 
 
 app.use('/api', api);
-app.use('/cssAndJS', express.static(path.join(__dirname, 'src/cssAndJS')));
+app.use(express.static(path.join(__dirname, 'src')));
 app.use('/', express.static('src/html'));
 
 
