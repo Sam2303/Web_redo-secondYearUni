@@ -108,7 +108,8 @@ header li{
   border-radius: 9px;
   border: none;
   font-size: 150%;
-  width: 30%;
+  width: 40%;
   height: 50px;
-  margin: 2%;
+  margin: 2% 30% 2% 30%;
+  text-align: center;
 }

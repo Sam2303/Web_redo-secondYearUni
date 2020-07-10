@@ -14,12 +14,13 @@ window.onload = async function getQuestionnaire(){
 function printQuestionnaire(){
 
   let questionnaire = elem.questionnaire;
+  let submitButton = document.getElementById('submitButton');
 
 // three lines of code to create the DIV tag to put all the questions in
 // also gives the tag the id to be able to style it
   elem.Questionnaire = document.createElement('div');
   elem.Questionnaire.id = 'questionnaire';
-  document.body.appendChild(elem.Questionnaire);
+  document.body.insertBefore(elem.Questionnaire, submitButton);
 
 // lines of code to create the tag for the questionnaire title
 // also gives title an id for styling
@@ -36,10 +37,6 @@ for(let i = 0; i < questionnaire.questions.length; i++){
   if(questionnaire.questions[i].type === 'multi-select'){multi_selectQuestion(i); console.log('multi-select');}
   }
 
-  let submit = document.createElement('button');
-  submit.textContent = 'Submit';
-  submit.className = 'Button';
-  elem.Questionnaire.appendChild(submit);
 }
 
 
@@ -50,6 +47,7 @@ function textQuestion(i){
   elem.Questionnaire.appendChild(question);
 // three lines of code to create the question text from the JSON file
   let text = document.createElement('h3');
+  text.id = i;
   text.textContent = elem.questionnaire.questions[i].text;
   question.appendChild(text);
 // code to create the input text box for the user to put answer in
@@ -67,6 +65,7 @@ function numberQuestion(i){
     elem.Questionnaire.appendChild(question);
   // three lines of code to create the question text from the JSON file
     let text = document.createElement('h3');
+    text.id = i;
     text.textContent = elem.questionnaire.questions[i].text;
     question.appendChild(text);
   // code to create the input text box for the user to put answer in
@@ -83,6 +82,7 @@ function single_selectQuestion(i){
     elem.Questionnaire.appendChild(question);
   // three lines of code to create the question text from the JSON file
     let text = document.createElement('h3');
+    text.id = i;
     text.textContent = elem.questionnaire.questions[i].text;
     question.appendChild(text);
   // code to create the input text box for the user to put answer in
@@ -109,6 +109,7 @@ function multi_selectQuestion(i){
     let text = document.createElement('h3');
     text.textContent = elem.questionnaire.questions[i].text;
     question.appendChild(text);
+    text.id = i;
   // code to create the input text box for the user to put answer in
   for (let x = 0; x < elem.questionnaire.questions[i].options.length; x++){
     let options = document.createElement('p');
