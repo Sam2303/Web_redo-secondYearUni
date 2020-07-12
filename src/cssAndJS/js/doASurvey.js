@@ -6,7 +6,7 @@ window.onload = async function getQuestionnaire(){
 // These two lines of code fetch the json questionnaire from the file system
   const getTheQuestionnaire = await fetch('../cssAndJS/json/example-questionnaire.json');
   elem.questionnaire = await getTheQuestionnaire.json();
-  console.log(elem.questionnaire);
+  //console.log(elem.questionnaire);
 
   printQuestionnaire();
 }
@@ -76,51 +76,53 @@ function numberQuestion(i){
 }
 
 function single_selectQuestion(i){
-  // // three lines of code to create the question div
-  //   let question = document.createElement('div');
-  //   question.className = 'quesition';
-  //   elem.Questionnaire.appendChild(question);
-  // // three lines of code to create the question text from the JSON file
-  //   let text = document.createElement('h3');
-  //   text.id = i;
-  //   text.textContent = elem.questionnaire.questions[i].text;
-  //   question.appendChild(text);
-  // // code to create the input text box for the user to put answer in
-  // for (let x = 0; x < elem.questionnaire.questions[i].options.length; x++){
-  //   let options = document.createElement('p');
-  //   options.textContent = elem.questionnaire.questions[i].options[x];
-  //   question.appendChild(options);
-  //   let radioBox = document.createElement('input');
-  //   radioBox.type = 'radio';
-  //   radioBox.value = elem.questionnaire.questions[i].options[x];
-  //   radioBox.id = 'radio' + x;
-  //   radioBox.name = 'radioOptions';
-  //   radioBox.className = 'tickBox';
-  //   options.appendChild(radioBox);
-  // }
+  // three lines of code to create the question div
+    let question = document.createElement('div');
+    question.className = 'quesition';
+    question.id = 'single_select';
+    elem.Questionnaire.appendChild(question);
+  // three lines of code to create the question text from the JSON file
+    let text = document.createElement('h3');
+    text.id = i;
+    text.textContent = elem.questionnaire.questions[i].text;
+    question.appendChild(text);
+  // code to create the input text box for the user to put answer in
+  for (let x = 0; x < elem.questionnaire.questions[i].options.length; x++){
+    let options = document.createElement('p');
+    options.textContent = elem.questionnaire.questions[i].options[x];
+    question.appendChild(options);
+    let radioBox = document.createElement('input');
+    radioBox.type = 'radio';
+    radioBox.value = elem.questionnaire.questions[i].options[x];
+    radioBox.id = 'radio' + x;
+    radioBox.name = 'radioCheckBoxes';
+    radioBox.className = 'tickBox';
+    options.appendChild(radioBox);
+  }
 }
 
 function multi_selectQuestion(i){
-  // // three lines of code to create the question div
-  //   let question = document.createElement('div');
-  //   question.className = 'quesition';
-  //   elem.Questionnaire.appendChild(question);
-  // // three lines of code to create the question text from the JSON file
-  //   let text = document.createElement('h3');
-  //   text.textContent = elem.questionnaire.questions[i].text;
-  //   question.appendChild(text);
-  //   text.id = i;
-  // // code to create the input text box for the user to put answer in
-  // for (let x = 0; x < elem.questionnaire.questions[i].options.length; x++){
-  //   let options = document.createElement('p');
-  //   options.textContent = elem.questionnaire.questions[i].options[x];
-  //   question.appendChild(options);
-  //   let checkBox = document.createElement('input');
-  //   checkBox.type = 'checkbox';
-  //   checkBox.value = elem.questionnaire.questions[i].options[x];
-  //   checkBox.id = 'checkbox' + x;
-  //   checkBox.name = 'checkbox';
-  //   checkBox.className = 'tickBox';
-  //   options.appendChild(checkBox);
-  // }
+  // three lines of code to create the question div
+    let question = document.createElement('div');
+    question.className = 'quesition';
+    question.id = 'multi_select';
+    elem.Questionnaire.appendChild(question);
+  // three lines of code to create the question text from the JSON file
+    let text = document.createElement('h3');
+    text.textContent = elem.questionnaire.questions[i].text;
+    question.appendChild(text);
+    text.id = i;
+  // code to create the input text box for the user to put answer in
+  for (let x = 0; x < elem.questionnaire.questions[i].options.length; x++){
+    let options = document.createElement('p');
+    options.textContent = elem.questionnaire.questions[i].options[x];
+    question.appendChild(options);
+    let checkBox = document.createElement('input');
+    checkBox.type = 'checkbox';
+    checkBox.value = elem.questionnaire.questions[i].options[x];
+    checkBox.id = 'checkbox' + x;
+    checkBox.name = 'MultiSelectCheckbox';
+    checkBox.className = 'tickBox';
+    options.appendChild(checkBox);
+  }
 }

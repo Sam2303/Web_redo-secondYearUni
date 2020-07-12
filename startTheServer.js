@@ -1,13 +1,12 @@
 const express = require('express');
-const path = require('path');
 const api = require('./api');
 const fetch = require("node-fetch");
-
+const bodyParser = require('body-parser');
 const app = express();
 
-
+app.use(bodyParser.json());
 app.use('/api', api);
-app.use(express.static(path.join(__dirname, 'src')));
+app.use('/', express.static('src'));
 app.use('/', express.static('src/html'));
 
 
