@@ -3,7 +3,6 @@ const fs = require('fs');
 const elem = {};
 const api = express.Router();
 
-
 api.post('/storeResults', async(req, res) => {
   const response = req.body;
   console.log(response);
@@ -16,8 +15,6 @@ api.post('/storeResults', async(req, res) => {
       console.log('saved');}
     });
 });
-
-
 
 
 module.exports = api;

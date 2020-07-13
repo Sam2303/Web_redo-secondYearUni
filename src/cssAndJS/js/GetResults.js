@@ -49,16 +49,12 @@ if(res.success === true){
 
 });
 
-
-
 // function to get the ticked checkboxes from the normal questions
   function getResponses(i){
   elem.questionId = i
   elem.questionText = document.getElementById(i).innerHTML;
   elem.questionAnswer = document.getElementById('text'+i).value;
   }
-
-
 
 // function to get the ticked checkboxes from the single select answer
 function getSingleSelect(i){
@@ -74,8 +70,6 @@ function getSingleSelect(i){
   }
   elem.questionAnswer = elem.checked;
   }
-
-
 
 // function to get the ticked checkboxes from the multi select answer
 function getMultiSelect(i){

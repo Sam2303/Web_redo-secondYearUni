@@ -6,8 +6,9 @@ window.onload = async function getQuestionnaire(){
 // These two lines of code fetch the json questionnaire from the file system
   const getTheQuestionnaire = await fetch('../cssAndJS/json/example-questionnaire.json');
   elem.questionnaire = await getTheQuestionnaire.json();
-  //console.log(elem.questionnaire);
-
+  // prints the questionnaire in the  console
+  console.log(elem.questionnaire);
+  //calls the function which loops through the different types
   printQuestionnaire();
 }
 
@@ -29,7 +30,8 @@ function printQuestionnaire(){
   Questionnaire_Title.textContent = questionnaire.name;
   elem.Questionnaire.appendChild(Questionnaire_Title);
 
-
+// loop to go through the questions and calling teh correct function for the type
+// of question
 for(let i = 0; i < questionnaire.questions.length; i++){
   if(questionnaire.questions[i].type === 'text'){textQuestion(i); console.log('text');}
   if(questionnaire.questions[i].type === 'number'){numberQuestion(i); console.log('number');}
@@ -39,6 +41,9 @@ for(let i = 0; i < questionnaire.questions.length; i++){
 
 }
 
+//functions which goes through each item in the quesitonnaire JSON and printing
+//on the HTML page the correct things and giving them the  correct IDs  and class
+//to be styled and also to be able for the getResults.js to collect the inputed respones
 
 function textQuestion(i){
 // three lines of code to create the question div
