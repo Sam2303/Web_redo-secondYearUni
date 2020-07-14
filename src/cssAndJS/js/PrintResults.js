@@ -1,13 +1,14 @@
 'use strict';
+const elem = {};
 let questionnaireDiv = document.getElementById('questionnaire');
 
 window.onload = async() => {
   //using Fetch here to collect the response json file and then printing it in the console
   const data = await fetch('../cssAndJS/json/responses.json');
-  const results = await data.json();
-  console.log(results);
+  elem.results = await data.json();
+  console.log(elem.results);
 
-  printOnPage(results);
+  printOnPage(elem.results);
 }
 
 function printOnPage(results){
@@ -38,4 +39,28 @@ function printResponse(i, results, div){
   let response = document.createElement('p');
   response.textContent = results.responses[i].answer;
   div.appendChild(response);
+}
+
+
+//download button for the responses
+let downloadButton = document.getElementById('DownloadButton').addEventListener('click', function(){
+   console.log('Download Button clicked');
+
+   // Start the download of yournewfile.txt file with the content from the text area
+       let text = elem.results;
+       let filename = "yournewfile.json";
+       download(filename, text);
+   }, false);
+
+function download(filename, text){
+    let element = document.createElement('a');
+    element.setAttribute('href', 'data:json/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(text)));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
