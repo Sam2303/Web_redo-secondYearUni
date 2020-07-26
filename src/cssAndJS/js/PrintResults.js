@@ -51,16 +51,12 @@ let downloadButton = document.getElementById('DownloadButton').addEventListener(
        let filename = "yournewfile.json";
        download(filename, text);
    }, false);
-
 function download(filename, text){
     let element = document.createElement('a');
     element.setAttribute('href', 'data:json/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(text)));
     element.setAttribute('download', filename);
-
     element.style.display = 'none';
     document.body.appendChild(element);
-
     element.click();
-
     document.body.removeChild(element);
 }

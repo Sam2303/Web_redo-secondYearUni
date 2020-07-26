@@ -15,6 +15,7 @@ submitButton.addEventListener('click', async () =>{
 // defines what the json file is going to look like and the structure
 let title = document.getElementById('questionnaire_Title').innerHTML;
 
+
 elem.results = {
   title,
 };
@@ -85,7 +86,6 @@ function getMultiSelect(i){
   }
   elem.questionAnswer = elem.checked;
   }
-
 
 
 // This function adds the response for each quesiton on the survey and adds
