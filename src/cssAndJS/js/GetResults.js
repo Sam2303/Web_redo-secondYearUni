@@ -38,17 +38,34 @@ for(let i = 0; i < numberOfQuestions; i++){
 }
 console.log(elem.results);
 
+
+const responses = await fetch('../cssAndJS/json/responses.json');
+const json = await responses.json();
+console.log(json);
+// fileStructure = {
+// };
+// fileStructure.responses = [];
+// fileStructure.responses.push(elem.results);
+
+
+
+json.answers.push(elem.results);
+
+
 const send = await fetch(url, {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify(elem.results),
+  body: JSON.stringify(json),
 });
 const res = await send.json();
 if(res.success === true){
   console.log('saved');
+  window.location.replace('../html/LookAtResults.html');
 } else{console.log('error');}
 
+
 });
+
 
 // function to get the ticked checkboxes from the normal questions
   function getResponses(i){
