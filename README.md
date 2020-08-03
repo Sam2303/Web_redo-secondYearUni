@@ -1,2 +1,5 @@
-# Web_redo
- Web Programming REDO
+To install packages:
+npm i
+
+To start the server:
+npm start
