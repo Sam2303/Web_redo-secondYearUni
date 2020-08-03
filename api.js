@@ -8,9 +8,6 @@ api.post('/storeResults', async(req, res) => {
   let file = JSON.stringify(response);
   await res.json({success: true});
 
-
-
-
     fs.writeFile('src/cssAndJS/json/responses.json', file , err => {
       if (err){console.log('ERROR!');}
       else{

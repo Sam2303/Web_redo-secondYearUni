@@ -42,11 +42,6 @@ console.log(elem.results);
 const responses = await fetch('../cssAndJS/json/responses.json');
 const json = await responses.json();
 console.log(json);
-// fileStructure = {
-// };
-// fileStructure.responses = [];
-// fileStructure.responses.push(elem.results);
-
 
 
 json.answers.push(elem.results);
