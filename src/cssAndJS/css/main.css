@@ -74,7 +74,8 @@ header li{
 }
 
 .quesition,
-.response{
+.response,
+.responseContainer{
   background-color: var(--navBackground);
   color: var(--navText);
   width: 70%;
@@ -82,6 +83,7 @@ header li{
   padding: 2%;
   border-radius: 10px;
 }
+
 
 .quesition h3,
 .response h3{

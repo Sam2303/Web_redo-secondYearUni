@@ -14,19 +14,46 @@ function printOnPage(results){
 
   for(let i = 0; i< results.answers.length; i++){
 
-    let responseNo =  document.createElement('div');
-    responseNo.className = 'response';
-    responseNo.textContent = 'Response ' + i;
-    questionnaireDiv.appendChild(responseNo);
+    elem.responseNo =  document.createElement('div');
+    elem.responseNo.className = 'responseContainer';
+    let numberResponse = i+1;
+    elem.responseNo.textContent = 'Response ' + numberResponse;
+    questionnaireDiv.appendChild(elem.responseNo);
 
     let Questionnaire_Title = document.createElement('h2');
     Questionnaire_Title.id = 'questionnaire_Title';
     Questionnaire_Title.textContent = results.answers[i].title;
-    Questionnaire_Title.style.display = 'none';
-    responseNo.appendChild(Questionnaire_Title);
+    //Questionnaire_Title.style.display = 'none';
+    elem.responseNo.appendChild(Questionnaire_Title);
 
-  }
+
+    let div = document.createElement('div');
+    div.className = 'repsonse';
+    elem.responseNo.appendChild(div);
+
+    for(let z = 0; z<results.answers[i].responses.length; z++){
+        printQuestion(i, z, results, div);
+        printResponse(i, z, results, div);
+        }
+    }
 }
+
+    // functions to print the questions and responses
+    function printQuestion(i, z, results, div){
+      let questions = document.createElement('h3');
+      questions.textContent = results.answers[i].responses[z].question;
+      questions.className = 'quesition';
+      //questions.style.display = 'none';
+      div.appendChild(questions);
+    }
+    function printResponse(i, z, results, div){
+      let response = document.createElement('p');
+      response.textContent = results.answers[i].responses[z].answer;
+      //response.style.display = 'none';
+      div.appendChild(response);
+    }
+
+
 
 
 //download button for the responses
