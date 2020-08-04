@@ -5,9 +5,9 @@ let questionnaireDiv = document.getElementById('questionnaire');
 window.onload = async() => {
   //using Fetch here to collect the response json file and then printing it in the console
   const data = await fetch('../cssAndJS/json/responses.json');
-  const results = await data.json();
-  console.log(results);
-  printOnPage(results);
+  elem.results = await data.json();
+  console.log(elem.results);
+  printOnPage(elem.results);
 }
 
 function printOnPage(results){
@@ -46,6 +46,7 @@ function printOnPage(results){
         printResponse(i, z, results, div);
       }
       arrow.removeEventListener('click', print);
+      arrow.remove();
     });
   }
 }
